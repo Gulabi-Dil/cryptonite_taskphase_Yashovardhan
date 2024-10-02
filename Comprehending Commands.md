@@ -1,7 +1,7 @@
-#cat command
-##**Commands**:
-1) hacker@commands~cat-not-the-pet-but-the-command:~$ cat flag
-##**Flag**: 
+# cat command
+## **Commands**:
+1) hacker@commands~cat-not-the-pet-but-the-command:\~$ cat flag
+ ##**Flag**: 
 >pwn.college{UTyxIV8TryQxDTFpSoUEDXeIZrr.dFzN1QDL3cDN0czW}
 ##**Explanation**: Read the file using cat. Here the flag file is locaated in the home directory which is also the cwd hence no need of using paths.
 
