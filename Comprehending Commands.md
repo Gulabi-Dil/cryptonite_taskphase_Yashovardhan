@@ -11,12 +11,18 @@
 Read the file using cat. Here the flag file is locaated in the home directory which is also the cwd hence no need of using paths.
 
 
-# catting absolute paths
-Commands: 
-1) hacker@commands~catting-absolute-paths:~$ cat /flag
-Flag: 
-pwn.college{4mWbHEg-OWrXyJwzr9sVQ5Xvwls.dlTM5QDL3cDN0czW}
-Explanation: Read the file using cat. Here the flag file is located in the root directory unlike the previous challenge. Thus we had to mention the absolute path to access the file and read its contents.
+
+# catting Absolute Paths
+### Commands: 
+1) hacker@commands~catting-absolute-paths:\~$ cat /flag
+
+ 
+### Flag: 
+>pwn.college{4mWbHEg-OWrXyJwzr9sVQ5Xvwls.dlTM5QDL3cDN0czW}
+
+
+### Explanation: 
+Read the file using cat. Here the flag file is located in the root directory unlike the previous challenge. Thus we had to mention the absolute path to access the file and read its contents.
 (In summary, cat flag is for reading file in current directory (relative path) and cat /flag is for reading file in different directory i.e. root directory (absolute path))
 
 
