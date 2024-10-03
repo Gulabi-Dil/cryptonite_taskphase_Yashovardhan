@@ -2,7 +2,7 @@
 Wildcards are special symbols used to represent unknown or variable parts of a file name, command, or search pattern. They help you match multiple files or items without specifying each one exactly. Wildcards are common in computer systems, especially in file searches and commands.
 Here are the main wildcards:
 
-\* (asterisk), ? (quetion mark), [] (square brackets)
+\* (asterisk), ? (question mark), [] (square brackets)
 
 Wildcards are especially useful when you're working with many files or when you don't know the exact name of what you're looking for.
 
@@ -28,8 +28,81 @@ Example: file.{txt,pdf} finds file.txt and file.pdf.
 
 In short, globs are like wildcards for matching file names.
 
+# Matching with *
+### Commands:
+```
+1) hacker@globbing~matching-with-:~$ cd /chal*
+```
+Output:- You specified the path to 'cd' to in more than 4 characters. Disallowed!
+
+`Tried /cha* as well but even that was invalid`
+```
+2) hacker@globbing~matching-with-:~$ cd /ch*
+3) hacker@globbing~matching-with-:/challenge$ /challenge/run
+```
+### Flag:
+>pwn.college{kzPSEhNb2Rd6Bt3QSdiJusRN9xy.dFjM4QDL3cDN0czW}
+### Explanation:
+When it encounters a * character in any argument, the shell will treat it as "wildcard" and try to replace that argument with any files that match the pattern.
+
+When zero files are matched, by default, the shell leaves the glob unchanged. Example:
+```
+hacker@dojo:~$ touch file_a
+hacker@dojo:~$ ls
+file_a
+hacker@dojo:~$ echo Look: nope_*
+Look: nope_*
+```
+The * matches any part of the filename except for / or a leading . character. Example:
+```
+hacker@dojo:~$ echo ONE: /ho*/*ck*
+ONE: /home/hacker
+hacker@dojo:~$ echo TWO: /*/hacker
+TWO: /home/hacker
+hacker@dojo:~$ echo THREE: ../*
+THREE: ../hacker
+```
+The / and * themselves are counting as individual characters thereby leaving us with just two characters to make the glob with. This is the reason /chal*, /cha* were incorrect. The * will match any number of characters after ch. Here, it matches to challenge.
+
+# Matching with ?
+### Commands:
+```
+1)hacker@globbing~matching-with-:~$ cd /?ha??enge
+2) hacker@globbing~matching-with-:/challenge$ /challenge/run
+```
+The second command can also be written as:
+```
+2) hacker@globbing~matching-with-:/challenge$ /?ha??enge/run
+```
+### Flag:
+>pwn.college{APMOY-gs8ni5SxGZnswI3fjf5na.dJjM4QDL3cDN0czW}
+### Explanation: 
+When it encounters a ? character in any argument, the shell will treat it as single-character wildcard. This works like *, but only matches one character. 
+
+`NOTE: ? CANNOT BE USED FOR TWO CHARACTERS, SAY AB. FOR 2 CHARACTERS, ?? MUST BE USED`
+
+# Matching with [ ]
+### Commands:
+```
+1) hacker@globbing~matching-with-:~$ cd /challenge/files
+2) hacker@globbing~matching-with-:/challenge/files$ /challenge//run file_[bash]
+```
+### Flag:
+>pwn.college{cB2BrMLsm0DDcTqLeF3q5FHOtq8.dNjM4QDL3cDN0czW}
+### Explanation:
+The square brackes are, essentially, a limited form of ?, in that instead of matching any character, [ ] is a wildcard for some subset of potential characters, specified within the brackets. For example, [pwn] will match the character p, w, OR n.
+
+# Matching Paths with [ ]
+### Commands:
+```
+1) hacker@globbing~matching-paths-with-:~$ /challenge/run /challenge/files/file_[bash]
+```
+### Flag:
+>pwn.college{8IYJCtUbn5hGv9VwBdRvS5rkmiB.dRjM4QDL3cDN0czW}
+### Explanation:
+The [ ] glob will match any character from b, a, s, h.
 # Mixing Globs
-### Commanda:
+### Commands:
 ```
 1) hacker@globbing~mixing-globs:~$ cd /challenge/files && ls
 ```
