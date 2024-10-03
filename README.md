@@ -79,3 +79,12 @@
 - [Exclusionary Globbing](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/File%20Globbing.md#exclusionary-globbing)
 
 - [Some references](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/File%20Globbing.md#some-references)
+
+## Practicing Piping
+- [An Overview](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#an-overview)
+
+- [Redirecting Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#redirecting-output)
+
+- [Redirecting More Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#redirecting-more-output)
+
+- [Appending Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#appending-output)
