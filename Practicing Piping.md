@@ -23,7 +23,7 @@ Some important file-redirection characters in Linux and what they do:
 
 `Some rules followed throughout: IF FILE DOESN'T EXIST, IT IS CREATED AND THE OUTPUT IS REDIRECTED THERE. IF THE FILE EXISTS THEN THE REDIRECTION DEPENDS ON THE CHARACTER USED. > IS OVERWRITE/TRUNCATION REDIRECTION WHERE THE PREVIOUS CONTENTS WILL BE OVERWRITTEN WHEREAS >> IS APPENDING REDIRECTION WHERE NEW CONTENTS WILL BE ADDED WITH NO CHANGES TO THE PREVIOUS CONTENTS.`
 
-`>, 2>, 8> will redirect to it first by creating a new file (if doesn't exist); if the file exists then the content is OVERWRITTEN`
+`>, 2>, &> will redirect to it first by creating a new file (if doesn't exist); if the file exists then the content is OVERWRITTEN`
 
 `>>, 2>>, &>> will redirect to it by first creating a new file (if doesn't exist); if the file exists then the content is APPENDED`
 # Redirecting Output
