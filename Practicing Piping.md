@@ -131,4 +131,23 @@ First redirected the standard output of the command /challenge/run to the file /
 ### Explanation:
 First ran the command /challenge/run whose output was used as input for grep pwn which will search pwn in the output of /challenge/run i.e. in the input of grep. The keyword selection was done like in previous challenge.
 
-# 
+# Grepping Errors
+### Commands:
+```
+1) hacker@piping~grepping-errors:~$ /challenge/run 2>&1 | grep pwn
+```
+### Flag:
+>pwn.college{oiQKgHWgTjeL3leR3wesFogpaqC.dVDM5QDL3cDN0czW}
+### Explanation:
+The > operator redirects a given file descriptor to a file, and you've used 2> to redirect fd 2, which is standard error.
+
+`The | operator redirects only standard output to another program, and there is no 2| form of the operator! It can only redirect standard output (file descriptor 1).`
+
+As mentioned in the challenge, we are redirecting a file descriptor to another file descriptor first and then piping. Here, 2>&1 means the standard error of the command /challenge/run will be redirected to standard output (means that ANY ERROR MESSAGE WILL BE SENT TO THE SAME PLACE AS THE NORMAL OUTPUT (STDOUT).
+
+Thus, it ultimately becomes the input for the grep after piping where grepping the keyword pwn will find the flag.
+
+# Duplicating Pipe Data with Tee
+### Commands:
+```
+```
