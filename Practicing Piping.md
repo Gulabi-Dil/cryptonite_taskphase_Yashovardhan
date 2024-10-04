@@ -68,3 +68,67 @@ get the whole flag!
 ### Explanation:
 
 
+# Redirecting Errors
+### Commands:
+```
+1) hacker@piping~redirecting-errors:~$ /challenge/run > myflag 2> instructions
+2) hacker@piping~redirecting-errors:~$ cat myflag
+```
+### Flag:
+>pwn.college{UiAxjgbfrJz03CfMq8f0Tl25GHg.ddjN1QDL3cDN0czW}
+### Explanation:
+A File Descriptor (FD) is a number the describes a communication channel in Linux. We're already familiar with three:
+
+`FD 0: Standard Input`
+
+`FD 1: Standard Output`
+
+`FD 2: Standard Error`
+
+When you redirect process communication, you do it by FD number, though some FD numbers are implicit. For example, a > without a number implies 1>, which redirects FD 1 (Standard Output). Thus, the following two commands are equivalent:
+```
+hacker@dojo:~$ echo hi > asdf
+hacker@dojo:~$ echo hi 1> asdf
+```
+Here, > will redirect the standard output of the command /challenge/run to myflag file and 2> will simultaenously redirect the standard error (the data is instructions here in this case) to a file named instructions. No output is shown in terminal due to the redirection but we can read the files using cat.
+
+# Redirecting Input
+### Commands:
+```
+1) hacker@piping~redirecting-input:~$ echo COLLEGE > PWN
+2) hacker@piping~redirecting-input:~$ /challenge/run < PWN
+```
+### Flag:
+>pwn.college{4FxI1x1EtOomXMTBrmTyuyjNVAk.dBzN1QDL3cDN0czW}
+### Explanation:
+First redirected the word COLLEGE to store it in a file named PWN using echo and >. Now, redirecting input was done by using < which redirects PWN to the command /challenge/run.
+
+# Grepping Stored Results
+### Commands:
+```
+1) hacker@piping~grepping-stored-results:~$ /challenge/run > /tmp/data.txt
+2) hacker@piping~grepping-stored-results:~$ grep flag /tmp/data.txt
+```
+grep will output a big list of texts from the file which have the word flag in them but none of them was the flag. `We also can't use cat unlike previous challenges here because what we are reading is a TEXT DOCUMENT and not a file or directory.`
+
+Recollecting the format of the flag i.e. pwn or the curly brackets {},
+```
+3) hacker@piping~grepping-stored-results:~$ grep { /tmp/data.txt
+```
+`NOTE: WE CAN'T USE {} FOR GREP TO SEARCH BECAUSE IT WILL CHECK THE ARGUMENT AS A WHOLE COLLECTIVELY, THUS USED ONLY ONE {`
+### Flag:
+>pwn.college{0PtJB1AnyNAg1xRWyolo9NyK1TZ.dhTM4QDL3cDN0czW}
+### Explanation:
+First redirected the standard output of the command /challenge/run to the file /tmp/data.txt and then used grep to search for the keywords which are present in the flag.
+
+# Grepping Live Output
+### Commands:
+```
+1) hacker@piping~grepping-live-output:~$ /challenge/run | grep pwn
+```
+### Flag:
+>pwn.college{AgnAhPcB2jTgCy3MJr3gMqiFlEL.dlTM4QDL3cDN0czW}
+### Explanation:
+First ran the command /challenge/run whose output was used as input for grep pwn which will search pwn in the output of /challenge/run i.e. in the input of grep. The keyword selection was done like in previous challenge.
+
+# 
