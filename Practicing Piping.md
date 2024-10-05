@@ -150,4 +150,30 @@ Thus, it ultimately becomes the input for the grep after piping where grepping t
 # Duplicating Pipe Data with Tee
 ### Commands:
 ```
+1)hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn | tee /challenge/college
+```
+Output: 
+
+Processing...
+You are trying to use 'tee' *instead* of /challenge/college. Use it *between*
+
+/challenge/pwn and /challenge/college!
+
+You must pipe the output of /challenge/pwn into /challenge/college (or 'tee'
+
+for debugging).
+```
+2) hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn | /challenge/college
+```
+Output:
+
+Processing...
+
+The input to 'college' does not contain the correct secret code! This code
+
+should be provided by the 'pwn' command. HINT: use 'tee' to intercept the
+
+output of 'pwn' and figure out what the code needs to be.
+```
+
 ```
