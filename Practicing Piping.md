@@ -14,7 +14,52 @@ Some important file-redirection characters in Linux and what they do:
 - \> directs the output of a command to a given file.
 - < directs the contents of a given file to a command.
 - \>\> directs the output of a command to a given file. Appends the output if the file exists and has content.
-- ><<
+- << manually provides input to a command instead of redirecting a file's content to the command. The syntax is: `command << delimiter` this will initiate the input of commands and the delimiter acts as a full stop after we're done typing them.
+
+example 1:
+```
+cat << ABC
+Helloo
+Byee
+ABC
+```
+Output:
+
+Helloo
+
+Byee
+
+example 2:
+```
+bc << EOF  // `bc` is a command line calculator to evaluate MULTIPLE operations. `expr` is a command line calculator to evaluate SINGLE operation
+5 + 3
+10 / 2
+2^3
+EOF
+```
+Output:
+
+8
+
+5
+
+8
+
+example 3:
+```
+grep "apple" << END
+I love apples.
+Bananas are great too.
+An apple a day keeps the doctor away.
+END
+```
+Output:
+
+I love apples.
+
+An apple a day keeps the doctor away.
+
+
 - 2> directs error messages from a command to a given file.
 - 2>> directs an error message from a command to a given file. Appends the error message if the file exists and has content.
 - &> directs standard output and error to a given file.
