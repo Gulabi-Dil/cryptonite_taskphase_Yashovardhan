@@ -88,3 +88,15 @@
 - [Redirecting More Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#redirecting-more-output)
 
 - [Appending Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#appending-output)
+
+- [Redirecting Errors](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#redirecting-errors)
+
+- [Redirecting Input](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#redirecting-input)
+
+- [Grepping Stored Results](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#grepping-stored-results)
+
+- [Grepping Live Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#grepping-live-output)
+
+- [Grepping Errors](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#grepping-errors)
+
+- [Duplicating Piped Data with tee](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#duplicating-piped-data-with-tee)
