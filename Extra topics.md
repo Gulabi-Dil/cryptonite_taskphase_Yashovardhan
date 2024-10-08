@@ -366,7 +366,7 @@ Process substitution uses system resources for temporary files or named pipes. W
 
 If the output process is slower than the input process, the output may block, which can lead to unexpected behavior if not managed properly.
 
-### Differences amongn Unnamed Pipes, Named Pipes and Process Substitutions:
+### Differences among Unnamed Pipes, Named Pipes and Process Substitutions:
 
 | Feature                    | Unnamed Pipes                                                 | Named Pipes (FIFOs)                                             | Process Substitution                                                     |
 |----------------------------|---------------------------------------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------|
