@@ -111,4 +111,11 @@
 ## Shell Variables
 - [Printing Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#printing-variables)
 - [Setting Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#setting-variables)
-  
+- [Multi-word Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#multi-word-variables)
+- [Exporting Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#exporting-variables)
+- [Printing Exported Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#printing-exported-variables)
+- [Storing Command Output](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#storing-command-output)
+- [Reading Input](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#reading-input)
+- [Reading Files](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#reading-files)
+
+## Processes and Jobs
