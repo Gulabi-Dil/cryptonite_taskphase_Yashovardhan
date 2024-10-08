@@ -1,22 +1,34 @@
+- [Exit Status Variable in Linux](https://www.geeksforgeeks.org/exit-status-variable-in-linux/)
+- [Grep Command](https://www.hostinger.in/tutorials/grep-command-in-linux-useful-examples/?utm_campaign=Generic-Tutorials-DSA|NT:Se|LO:IN-t5&utm_medium=ppc&gad_source=1&gclid=CjwKCAjwgfm3BhBeEiwAFfxrG8x2xPsN_OXGiqnhGabISx__S58VeXv6dzU5d6bKa4tyIorNARuIMRoCJ3oQAvD_BwE)
+- [Difference between ;, && and |
+# Unnamed Pipes:
+Unnamed pipes are one of the simplest forms of inter-process communication (IPC) in Unix-like operating systems. They are typically used to connect two related processes (such as a parent process and its child process), allowing the output of one process to be sent directly to another.
+
+## Key Characteristics of Unnamed Pipes
+- **Temporary and Anonymous**: Unnamed pipes exist only as long as the process that created them is running. They do not have a name in the filesystem and cannot be accessed by unrelated processes.
+
+- **One-way Communication**: Unnamed pipes are unidirectional, meaning data flows in one direction—from one process to another.
+- **Parent-Child Communication**: Often used to pass data between a parent process and a child process created via fork() in C programming, or between commands connected in a pipeline in the shell.
+- **File Descriptors**: Unnamed pipes use file descriptors to handle reading and writing. The process writing to the pipe uses one file descriptor (fd) for writing, and the process reading uses another for reading.
+
+## Syntax in the Shell (Pipelines):
+```command1 | command2```
+
+The | symbol represents an unnamed pipe, sending the output of command1 directly into the input of command2.
+
+Example:
+
+```ls | grep "file"```
+
+Here, the output of ls is passed directly to grep, and no intermediate file is created.
 # Named Pipes:
 Named pipes, also known as FIFOs (First In, First Out), are a special type of file in Unix-like operating systems that facilitate inter-process communication (IPC). Unlike unnamed pipes, which are temporary and exist only in memory while the communicating processes are running, named pipes have a presence in the filesystem and can be accessed by multiple processes, even if they are not related (i.e., they do not share a common ancestor).
 
 ## Key Characteristics of Named Pipes
-- Persistent in Filesystem:
-
-Named pipes are created as special files in the filesystem, which allows them to persist beyond the life of the processes that created them.
-They are identified by a name in the filesystem, making them accessible for reading and writing by any process that knows the name.
-- Unidirectional Communication:
-
-Named pipes are typically unidirectional, meaning data flows in one direction—from the writing process to the reading process.
-However, you can create two named pipes to allow for bidirectional communication.
-- Blocking Behavior:
-
-When a process attempts to read from a named pipe, it will block (i.e., wait) until there is data available to read.
-Conversely, if a process tries to write to a named pipe that has no readers, it may also block until a reader is available.
-- FIFO Structure:
-
-The name "FIFO" indicates that data is read in the order it was written. The first piece of data written to the pipe is the first to be read, following a first-in, first-out structure.
+- **Persistent in Filesystem**: Named pipes are created as special files in the filesystem, which allows them to persist beyond the life of the processes that created them. They are identified by a name in the filesystem, making them accessible for reading and writing by any process that knows the name.
+- **Unidirectional Communication**: Named pipes are typically unidirectional, meaning data flows in one direction—from the writing process to the reading process. However, you can create two named pipes to allow for bidirectional communication.
+- **Blocking Behavior**: When a process attempts to read from a named pipe, it will block (i.e., wait) until there is data available to read. Conversely, if a process tries to write to a named pipe that has no readers, it may also block until a reader is available.
+- **FIFO Structure**: The name "FIFO" indicates that data is read in the order it was written. The first piece of data written to the pipe is the first to be read, following a first-in, first-out structure.
 
 ## How to Create and Use Named Pipes
 1. Creating a Named Pipe
@@ -142,3 +154,19 @@ Process substitution uses system resources for temporary files or named pipes. W
 - Blocking Behavior:
 
 If the output process is slower than the input process, the output may block, which can lead to unexpected behavior if not managed properly.
+
+## Difference between Unnamed Pipes, Named Pipes and Process Substitutions:
+
+| Feature                    | Unnamed Pipes                                                 | Named Pipes (FIFOs)                                             | Process Substitution                                                     |
+|----------------------------|---------------------------------------------------------------|-----------------------------------------------------------------|--------------------------------------------------------------------------|
+| Persistence                 | Temporary, in-memory, only lasts as long as the process       | Persistent, exists in the filesystem until removed              | Temporary, exists only while the shell command is running                |
+| Naming                      | Anonymous (no name in the filesystem)                         | Named (has a file path)                                          | No explicit name (file descriptor or temporary file managed by the shell) |
+| Inter-process Communication | Between related processes (e.g., parent-child)                | Between any processes with access to the pipe                   | Between commands within a shell pipeline                                 |
+| Direction of Communication  | Unidirectional                                                | Unidirectional (but can simulate bidirectional using two pipes) | Can simulate either input or output substitution depending on the syntax |
+| Creation                    | Implicitly created using `|` between commands                | Created manually using `mkfifo`                                  | Created by the shell using `<(command)` or `>(command)`                  |
+| Filesystem                  | Does not appear in the filesystem                             | Appears as a special file (FIFO) in the filesystem               | Temporary file or file descriptor created by the shell                   |
+| Concurrency                 | Commands connected by a pipe run concurrently                 | Commands using the pipe must coordinate to avoid blocking        | Commands run concurrently, and the shell handles communication           |
+| Use Case                    | Simple pipelines between commands                            | IPC between unrelated processes (or across multiple terminals)   | Passing command output or input as a file for comparison, manipulation   |
+| Example                     | `ls | grep file`                                              | `mkfifo mypipe` + `echo "Hello" > mypipe`                       | `diff <(ls dir1) <(ls dir2)`                                             |
+
+
