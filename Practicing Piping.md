@@ -1,3 +1,7 @@
+- [Unnamed Pipes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#unnamed-pipes)
+- [Named Pipes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#named-pipes)
+- [Process Substitutions](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#process-substitution)
+- [Differences among Unnamed, Named Pipes and Process Substitutions](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#difference-between-unnamed-pipes-named-pipes-and-process-substitutions)
 # AN OVERVIEW:
 The mechanisms behind the handling of input and output on the commandline contribute to the commandline's power. Every process in Linux has three initial, standard channels of communication:
 - Standard Input is the channel through which the process takes input. For example, your shell uses Standard Input to read the commands that you input.
