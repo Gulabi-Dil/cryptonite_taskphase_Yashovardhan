@@ -378,6 +378,6 @@ If the output process is slower than the input process, the output may block, wh
 | Filesystem                  | Does not appear in the filesystem                             | Appears as a special file (FIFO) in the filesystem               | Temporary file or file descriptor created by the shell                   |
 | Concurrency                 | Commands connected by a pipe run concurrently                 | Commands using the pipe must coordinate to avoid blocking        | Commands run concurrently, and the shell handles communication           |
 | Use Case                    | Simple pipelines between commands                            | IPC between unrelated processes (or across multiple terminals)   | Passing command output or input as a file for comparison, manipulation   |
-| Example                     | `ls | grep file`                                              | `mkfifo mypipe` + `echo "Hello" > mypipe`                       | `diff <(ls dir1) <(ls dir2)`                                             |
+| Example                     | `ls \| grep file`                                              | `mkfifo mypipe` + `echo "Hello" > mypipe`                       | `diff <(ls dir1) <(ls dir2)`                                             |
 
 
