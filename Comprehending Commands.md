@@ -113,7 +113,9 @@ Changed to root directory, did ls then did ls -a and found the hidden files. REa
 1) hacker@commands~an-epic-filesystem-quest:~$ cd /
 2) hacker@commands~an-epic-filesystem-quest:/$ ls
 3) hacker@commands~an-epic-filesystem-quest:/$ cat flag
+```
 Output:- Permission denied.
+```
 4) hacker@commands~an-epic-filesystem-quest:/$ cat INSIGHT
 5) hacker@commands~an-epic-filesystem-quest:/$ cd /usr/local/lib/python3.8/dist-packages/pwnlib/encoders
 6) hacker@commands~an-epic-filesystem-quest:/usr/local/lib/python3.8/dist-packages/pwnlib/encoders$ ls
@@ -138,7 +140,15 @@ Output:- Permission denied.
 ### Explanation: 
 Kept on changing directories and doing ls and ls -a to find the clue files and used cat to read them. 
 
-[NOTE: && CAN BE USED TO PERFORM MULTIPLE OPERATIONS IN 1 COMMAND. EXAMPLE 1: cd /path && ls EXAMPLE 2: cd /path && ls && cat file_name. Basically its changing the directory AND doing ls and in second its ALSO reading a file whose name we already know. THIS HELPS IN REDUCING THE LINES OF CODE AND IS EFFICIENT.]
+[NOTE: `&&` CAN BE USED TO PERFORM `MULTIPLE` OPERATIONS IN 1 COMMAND.]
+
+**EXAMPLE 1**: `cd /path && ls` 
+
+**EXAMPLE 2**: `cd /path && ls && cat file_name`
+
+Basically its changing the directory AND doing ls and in second its ALSO reading a file whose name we already know. THIS HELPS IN REDUCING THE LINES OF CODE AND IS EFFICIENT.
+
+`NOTE: && WILL  PERFORM THE COMMAND ON ITS RIGHT` **_IF AND ONLY IF_** `THE COMMAND ON ITS LEFT IS PERFORMED SUCCESSFULLY. FOR MORE DETAILS, REFER TO` [THIS](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/506c982c9505ad48f194f7f04e4715d880d63698/Operators%20differences%20(extra).md)
 
 
 # Making Directories
@@ -177,7 +187,25 @@ Output is a big list of directories and files, most of which deny access and as 
 # Linking Files
 ### Commands: 
 ```
+1) hacker@commands~linking-files:~$ /flag
+```
+Output: ssh-entrypoint: /flag: Permission denied
+```
+2) hacker@commands~linking-files:~$ /challenge/catflag
+```
+Output:
+
+About to read out the /home/hacker/not-the-flag file!
+
+cat: /home/hacker/not-the-flag: No such file or directory
+```
+3) hacker@commands~linking-files:~$ ln -s /flag ~/not-the-flag
+4) hacker@commands~linking-files:~$ /challenge/catflag
 ```
 ### Flag:
 >pwn.college{MlH0LP6b4oFDx4ivhx2ra9sqJyo.dlTM1UDL3cDN0czW}
 ### Explanation:
+/flag has no perissions to access it but it contains the flag. Also, as mentioned in the descritpion of the challenge, the command /challenge/catflag is programmed with permission to read the /home/hacker/not-the-flag file. Thus, I created a symlink (soft link) to /flag using `ln -s og_file's_name symlink's_name`. This file /home/hacker/not-the-flag "pretends" to be /flag. Ran the command /challenge/catflag which read the home hacker file and got the flag.
+
+## Some References:
+- [Hard and Soft Links in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/edit/main/Extra%20topics.md#file-linking-in-unix-like-systems)
