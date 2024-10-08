@@ -357,4 +357,27 @@ Output:
 
 Visible output
 
+# Split-Piping stderr and stdout:
+### Commands:
+```
+1) hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack > >(/challenge/planet) 2> >(/challenge/the)
+```
+Can also be done using piping
+```
+1) hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack 2> >(/challenge/the) | /challenge/planet
+```
+### Flag:
+>pwn.college{8sEaXI1u8M9GYUPf-0sLOCBCJ8U.dFDNwYDL3cDN0czW}
+### Explanation:
+In method 1, I redirected the stdout and stderr to respective COMMANDS (hence the usage of process substitutions aka temporary named pipes) where > `(i.e. 1> or stdout)` was used to redirect stdout to /challenge/planet and 2> `(i.e. stderr)` was used to redirect stderr to /challenge/the.
 
+In method 2, I first redirected the stderr from /challenge/hack to process substitution of /challenge/the and then used piping to store stdout of hack in planet.
+
+`NOTE: THIS ONLY WORKS BECAUSE THE DEFAULT PIPING FOR PIPES IS STDOUT.`
+
+## Some References:
+- Chatgpt for understanding some concepts, workings and errors, especially in Writing to Multiple Programs. (Solving was done by myself though)
+- [Input Output Redirection](https://www.geeksforgeeks.org/input-output-redirection-in-linux/)
+- [Redirection and Piping](https://www.freecodecamp.org/news/linux-terminal-piping-and-redirection-guide/#:~:text=What%20Is%20Redirection%20in%20Linux,working%20with%20commands%20and%20files.)
+- [Process Substitutions 1](https://sysxplore.com/process-substitution-in-bash/) _To be read_
+- [Process Substitutions 2](https://linuxhandbook.com/bash-process-substitution/) _To be read_
