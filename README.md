@@ -1,4 +1,7 @@
 # cryptonite_taskphase_Yashovardhan
+### Some extra topics
+- [Piping, Process Substitutions, Differences](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/d3b72f6e15fced39ea4bb4c1651975c018b08c36/Extra%20topics.md)
+- [Different Operators like ; && || etc.](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/d3b72f6e15fced39ea4bb4c1651975c018b08c36/Operators%20differences%20(extra).md)
 ## Hello Hackers
 - [Intro to Commands](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Hello%20Hackers.md#intro-to-commands)
 
@@ -100,3 +103,7 @@
 - [Grepping Errors](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#grepping-errors)
 
 - [Duplicating Piped Data with tee](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#duplicating-piped-data-with-tee)
+
+- [Writing to Multiple Programs](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#writing-to-multiple-programs)
+
+- [Split-Piping stderr and stdout](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#split-piping-stderr-and-stdout)
