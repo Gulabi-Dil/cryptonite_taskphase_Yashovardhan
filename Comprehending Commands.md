@@ -208,4 +208,4 @@ cat: /home/hacker/not-the-flag: No such file or directory
 /flag has no perissions to access it but it contains the flag. Also, as mentioned in the descritpion of the challenge, the command /challenge/catflag is programmed with permission to read the /home/hacker/not-the-flag file. Thus, I created a symlink (soft link) to /flag using `ln -s og_file's_name symlink's_name`. This file /home/hacker/not-the-flag "pretends" to be /flag. Ran the command /challenge/catflag which read the home hacker file and got the flag.
 
 ## Some References:
-- [Hard and Soft Links in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/edit/main/Extra%20topics.md#file-linking-in-unix-like-systems)
+- [Hard and Soft Links in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/preview/main/Extra%20topics.md#file-linking-in-unix-like-systems)
