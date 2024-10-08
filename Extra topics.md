@@ -1,6 +1,7 @@
 - [Exit Status Variable in Linux](https://www.geeksforgeeks.org/exit-status-variable-in-linux/)
 - [Grep Command](https://www.hostinger.in/tutorials/grep-command-in-linux-useful-examples/?utm_campaign=Generic-Tutorials-DSA|NT:Se|LO:IN-t5&utm_medium=ppc&gad_source=1&gclid=CjwKCAjwgfm3BhBeEiwAFfxrG8x2xPsN_OXGiqnhGabISx__S58VeXv6dzU5d6bKa4tyIorNARuIMRoCJ3oQAvD_BwE)
-- [Difference between ;, && and |
+- [Difference between ; && and || and info about some other operators](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Operators%20differences%20(extra).md#differences-between---and--in-linux)
+
 # Unnamed Pipes:
 Unnamed pipes are one of the simplest forms of inter-process communication (IPC) in Unix-like operating systems. They are typically used to connect two related processes (such as a parent process and its child process), allowing the output of one process to be sent directly to another.
 
