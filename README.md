@@ -107,3 +107,8 @@
 - [Writing to Multiple Programs](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#writing-to-multiple-programs)
 
 - [Split-Piping stderr and stdout](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Practicing%20Piping.md#split-piping-stderr-and-stdout)
+
+## Shell Variables
+- [Printing Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#printing-variables)
+- [Setting Variables](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#setting-variables)
+  
