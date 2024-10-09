@@ -119,3 +119,12 @@
 - [Reading Files](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Shell%20Variables.md#reading-files)
 
 ## Processes and Jobs
+- [Listing Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#listing-processes)
+- [Killing Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#killing-processes)
+- [Interrupting Processs](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#interrupting-processes)
+- [Suspending Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#suspending-processes)
+- [Resuming Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#resuming-processes)
+- [Backgrounding Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#backgrounding-processes)\
+- [Foregrounding Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#foregrounding-processes)
+- [Starting Background Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#starting-background-processes)
+- [Process Exit Codes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#process-exit-codes)
