@@ -128,3 +128,8 @@
 - [Foregrounding Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#foregrounding-processes)
 - [Starting Background Processes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#starting-background-processes)
 - [Process Exit Codes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Processes%20and%20Jobs.md#process-exit-codes)
+
+## Perceiving Permissions 
+- []()
+- [Groups and Files](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Perceiving%20Permissions.md#groups-and-files)
+- [Fun with Gorup Names](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Perceiving%20Permissions.md#fun-with-group-names)
