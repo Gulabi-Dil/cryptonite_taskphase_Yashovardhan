@@ -169,3 +169,110 @@ Current permissions of "/flag": `---------`
 ### Explanation:
 Kept changing permissions as per the prompts.
 
+
+# Permissions Setting Practice
+### Commands:
+```
+1) hacker@permissions~permission-tweaking-practice:~$ /challenge/run
+```
+Current: ` rw-r--r--`    Needed: `---rw--wx`
+```
+2) hacker@permissions~permission-tweaking-practice:~$ chmod u=-,g=rw,o=wx /challenge/pwn
+```
+Current: `---rw--wx`    Needed: `-wxr--r--`
+```
+3) hacker@permissions~permission-tweaking-practice:~$ chmod u=wx,g=r,o=r /challenge/pwn
+```
+Current: `-wxr--r--`    Needed: `rw-rw-r-x`
+```
+4) hacker@permissions~permission-tweaking-practice:~$ chmod u=rw,g=rw,o=rx /challenge/pwn
+```
+Current: `rw-rw-r-x`    Needed: `rwxrwxr-x`
+```
+5) hacker@permissions~permission-tweaking-practice:~$ chmod u=rwx,g=rwx,o=rx /challenge/pwn
+```
+Current: `rwxrwxr-x`    Needed: `---rw-rwx`
+```
+6) hacker@permissions~permission-tweaking-practice:~$ chmod u=-,g=rw,o=rwx /challenge/pwn
+```
+Current: `---rw-rwx`    Needed: `r-x---r--`
+```
+7) hacker@permissions~permission-tweaking-practice:~$ chmod u=rx,g=-,o=r /challenge/pwn
+```
+Current: `r-x---r--`    Needed: `r---wx-wx`
+```
+8) hacker@permissions~permission-tweaking-practice:~$ chmod u=r,g=wx,o=wx /challenge/pwn
+```
+Current: `r---wx-wx`    Needed: `---rwxrw-`
+```
+9) hacker@permissions~permission-tweaking-practice:~$ chmod u=-,g=rwx,o=rw /challenge/pwn
+```
+Output:
+
+You set the correct permissions!
+
+You've solved all 8 rounds! I have changed the ownership
+
+of the /flag file so that you can 'chmod' it. You won't be able to read
+
+it until you make it readable with chmod!
+
+Current permissions of "/flag": `---------`
+```
+10) hacker@permissions~permission-tweaking-practice:~$ chmod u=r /flag
+11) hacker@permissions~permission-tweaking-practice:~$ cat /flag
+```
+### Flag:
+>pwn.college{Aw-BhwqnG0eld24jJA6Xr42X0BI.dNTM5QDL3cDN0czW}
+### Explanation:
+In addition to adding and removing permissions, as in the previous level, `chmod` can also simply set permissions altogether, overwriting the old ones. This is done by using `=` instead of `-` or `+`. For example:
+
+- `u=rw` sets read and write permissions for the user, and wipes the execute permission
+- `o=x` sets only executable permissions for the world, wiping read and write
+- `a=rwx` sets read, write, and executable permissions for the user, group, and world!
+
+We can **chain multiple modes by using `,`. This will come in handy when we want to set different permissions for user, group and other users respectively.**
+
+Example:
+`chmod u=rw,g=r /challenge/pwn` will set the user permissions to read and write, and the group permissions to read-only.
+
+`chmod a=r,u=rw /challenge/pwn` will set the user permissions to read and write, and the group and world permissions to read-only.
+
+Additionally, you can zero out permissions with `-`:
+
+`chmod u=rw,g=r,o=- /challenge/pwn` will set the user permissions to read and write, the group permissions to read-only, and the world permissions to nothing at all.
+
+**NOTE: IF `-` IS USED AFTER `=` THEN IT WILL ZERO OUT ALL PERMISSIONS OF USER/GROUP/OTHER USERS. IF `-` IS USED IMMEDIATELY AFTER `u`,`g` or `o`, IT WILL REMOVE SPECIFIC BITS OF THE PERMISSION (LIKE WE SAW IN PREVIOUS CHALLENGE).**
+
+# The SUID bit
+### Commands:
+```
+1) hacker@permissions~the-suid-bit:~$ cd /challenge && ls -l
+```
+Output: A list of files and directories under the challenge directory was displayed among which was
+
+`-rwxr-xr-x 1 root root  155 Jul 12 10:30 getroot`
+```
+2) hacker@permissions~the-suid-bit:/challenge$ cat /flag
+```
+cat: /flag: Permission denied
+```
+3) hacker@permissions~the-suid-bit:/challenge$ chmod u+s /challenge/getroot
+4) hacker@permissions~the-suid-bit:/challenge$ /challenge/getroot
+```
+Output:
+
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+
+Here is your shell...
+
+`root@permissions~the-suid-bit:/challenge#`
+```
+5) root@permissions~the-suid-bit:/challenge# cat /flag
+```
+### Flag:
+>pwn.college{o7rPLPMRfc57XNawJoUoAgDdCUP.dNTM2QDL3cDN0czW}
+### Explanation:
+Already explained everything in detail [here](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#setuid)
+
+After setting the setuid to the program /challenge/getroot followed by running it, a root shell was initiated which gave me
