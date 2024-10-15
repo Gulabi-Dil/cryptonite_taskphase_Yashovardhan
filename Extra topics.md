@@ -445,3 +445,99 @@ The **group head** or **process group leader** is the process that starts a proc
 
 This structure allows for efficient job control, signal handling, and process management in Linux.
 
+===========================================================================
+
+# File Types
+There are different file types in linux which is identified by the first character of the file permissions string. 
+
+# Types of Files in Linux
+
+The following table shows the types of files in Linux and what will be output using ls and file command.
+
+| The file type using "ls -l" is denoted using | File Type      | Description                                    | Command to create the File | Located in   | FILE command output                       |
+|----------------------------------------------|-----------------|------------------------------------------------|-----------------------------|--------------|-------------------------------------------|
+| -                                            | Regular File    | Common files that store user data.            | touch                       | Any directory | PNG Image data, ASCII Text, etc.         |
+| d                                            | Directory File   | A folder that contains files and directories.  | mkdir                       | It is a directory | Directory                                 |
+| b                                            | Block Files     | Files that manage data in blocks.             | fdisk                      | /dev         | Block special                             |
+| c                                            | Character Files  | Files that manage data as a stream of characters. | mknod                   | /dev         | Character special                         |
+| p                                            | Pipe Files      | Used for inter-process communication.          | mkfifo                     | /dev         | FIFO                                      |
+| l                                            | Symbol Link Files | A shortcut to another file.                    | ln                          | /dev         | Symbol link to <linkname>                |
+| s                                            | Socket Files    | Used for network communication.                | socket() system call       | /dev         | Socket                                    |
+
+===========================================================================
+
+# Understanding File Permissions
+Understanding file permissions as numbers:
+
+**4 = r (read)      2 = w (write)      1 = x (execute)**
+
+For each group, you add the three numbers together to create a single-digit representation of the permissions for that group. For example:
+
+- 0 means no permissions
+
+- 4 means read only (4)
+
+- 5 means read and execute (4 + 1)
+
+- 6 means read and write (4 + 2)
+
+- 7 means all permissions (read, write, and execute, or 4 + 2 + 1)
+
+When using numeric representation, the numbers can be three or four digits. In the case of a four-digit number, the first digit is used to set setuid, setgid, or sticky bit. The last three digits represent a combination of read, write, and execute added together (as shown above).
+
+
+**4 = setuid      2 = setgid      1 = sticky bit**
+
+## setuid: 
+A bit that makes an executable run with the *privileges* of the owner of the file.
+
+In some cases, you may need a user to run a program with more privileges — usually root privileges — than they have by default. The textbook case for this is the passwd command that allows users to change their own password. Changing your password inherently requires changing the `/etc/shadow` file. However, only the root user has write access to `/etc/shadow`.
+```
+cooluser@LAPTOP-5V55HON5:~$ ls -l /etc/shadow
+-rw-r—– 1 root shadow 1824 Oct 18 19:49 /etc/shadow
+cooluser@LAPTOP-5V55HON5:~$
+```
+Under normal circumstances, that suggests we'd need to be root or have sudo privileges to change our password. However, normal users can execute the passwd command to change their own password without sudo or root permissions but only on the condition that the permissions will have a character `s` instead of that of executable `x`. 
+```
+cooluser@LAPTOP-5V55HON5:~$ passwd
+Changing password for cooluser.
+Current password:
+New password:
+Retype new password:
+passwd: password updated successfully
+cooluser@LAPTOP-5V55HON5:~1$
+```
+To understand why passwd seemingly grants root-level access but ls doesn't, let's take a look at the permissions on those two executables.
+```
+cooluser@LAPTOP-5V55HON5:~$ ls -l /bin/ls
+-rwxr-xr-x 1 root root 142144 Sep  5  2019 /bin/ls
+cooluser@LAPTOP-5V55HON5:~$ ls -l /bin/passwd
+-rwsr-xr-x 1 root root 68208 May 28 01:37 /bin/passwd
+cooluser@LAPTOP-5V55HON5:~$
+```
+The passwd executable has character `s` instead of `x` in the root executable permissions whereas the other executable has `x`.
+
+If we try to execute the one with `x`, it won't let us do so but we can execute the one with `s`.
+
+It basically means that when we run the `passwd` command it is automatically executed as the **OWNER** of the file **WITHOUT** giving the user the **root or sudo access**.
+
+## setgid:
+A bit that makes an executable run with the *privileges* of the group of the file. It is the same as setuid but the s will be present in the position of the group.
+
+## sticky bit: 
+A bit set on directories that allows only the owner or root to delete or rename files and subdirectories. It does not affect other operations like reading, writing, or executing files.
+
+Like we have `s` for **setuid** and **setgid**, we have `t` for **sticky bit**.
+
+If there's a `t` included at the end of all 9 permission characters, it means the **sticky bit** is set.
+
+A user (_except_ root, owner or the command, sudo) **CAN add** files or subdirectories inside the directory which has sticky bit set but **cannot delete or rename** the existing files or subdirectories.
+
+While setting **setuid**, **setgid** and **sticky bit**, we append `4`,`2` and `1` respectively to the already existing `3 digit` numeric representation of file permissions in the beginning.
+For example:
+chmod 4755 <file name>
+
+Here, 4 denotes setuid, 7 = all perms to owner, 5 and 5= read and execute perms to group and other users.
+Similarly, 2 and 1 will denote their respective setting.
+
+We can also set setuid, setgid and sticky bit by simply writing u+s, g+s, +t in the options respectively.
