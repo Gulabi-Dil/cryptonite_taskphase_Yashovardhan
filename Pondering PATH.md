@@ -50,4 +50,21 @@ Congratulations! You properly set the flag and 'win' has launched!
 ### Explanation:
 `/challenge/run` contains a command `win` but this command exists in `/challenge/more_commands` directory which isn't present in the `PATH` variable. So, I overwrote the `PATH` variable with `/challenge/more_commands` and then ran `/challenge/run` and got the flag.
 
+# Adding Commands
+### Commands:
+```
+1) hacker@path~adding-commands:~$ touch win
+2) hacker@path~adding-commands:~$ echo "cat /flag" > ~/win
+3) hacker@path~adding-commands:~$ PATH=$PATH:~
+4) hacker@path~adding-commands:~$ chmod a+x win
+5) hacker@path~adding-commands:~$ /challenge/run
+```
+Output:
+
+Invoking 'win'....
+### Flag:
+>pwn.college{M3WPm6Nphwn3gLjFa0XVigRbcHb.dZzNyUDL3cDN0czW}
+### Explanation:
+
+
 # 
