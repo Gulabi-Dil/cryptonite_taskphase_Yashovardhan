@@ -47,3 +47,6 @@ A list of files and directories under the home directory was displayed among whi
 >pwn.college{QaUHWGCmvnRBhLsP36CGRW2uMq5.dRzNyUDL3cDN0czW}
 ### Explanation:
 Instead of using `bash` I made the file `y.sh` executable by changing the file permissions using `chmod` followed by executing it (since its in the current directory i.e. home directory, I used `./`)
+
+## Some References:
+[Bashing](https://www.geeksforgeeks.org/what-is-hashing/)
