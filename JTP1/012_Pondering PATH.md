@@ -1,3 +1,6 @@
+## Some basic info about variables in Linux:
+- [Variables in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#types-of-variables-in-linux)
+_**NOTE: `PATH` IS AN ENVIRONMENT VARIABLE.**_
 # The PATH Variable
 ### Commands:
 ```
@@ -65,8 +68,7 @@ Invoking 'win'....
 ### Flag:
 >pwn.college{M3WPm6Nphwn3gLjFa0XVigRbcHb.dZzNyUDL3cDN0czW}
 ### Explanation:
-
-
+Created a file called `win` in `~` and redircted the output of `echo "cat /flag"` to `win` file. Since, the `~` directory isn't present in the `PATH` variable, I added this directory to the list of already existing directories in `PATH` so that when `win` is invoked by `/challenge/run` during its execution, it will first check if it is a builtin command or not, if not then it will go through the directories in `PATH` variable and find if the `win` file is present in any. If present, `win` will be invoked successfully (but before that, we need to make sure `win` is executable so that when it is invoked, it will execute the **_COMMAND_** `cat /flag`. Used `chmod a+x` for this)and `/challenge/run` will give us the flag else it will show **command not found**.
 # Hijacking Commands
 ### Commands:
 ```
@@ -83,3 +85,15 @@ Found 'rm' command at /home/hacker/rm. Executing!
 ### Flag:
 >pwn.college{otDZ9DjSgm5Cr8nsjTl7K7kSuY7.ddzNyUDL3cDN0czW}
 ### Explanation:
+**NOTE**: The shell checks the directories in the `PATH` variable in an order i.e. left to right. 
+
+_**Example:**_
+
+**If your `PATH` is set to `~/bin:/usr/local/bin:/usr/bin`, the shell will check `~/bin` first. If it finds the command there, it executes it. If not, it moves to `/usr/local/bin`, and then to `/usr/bin`.**
+
+Here, we know that `/challenge/run`'s code has `rm` which will delete the flag but it doesn't have any command to read the flag. So, instead of letting `/challenge/run` executing the `rm` meant for _deleting_ the flag, I created a _duplicate `rm`_ to `read` the flag instead. BUT the catch is that the _duplicate `rm`_ must be invoked **BEFORE** the _actual `rm`._
+
+**Note 2: actual `rm` is located in a directories mentioned in `PATH` which I found using `echo $PATH` and `which rm`**
+
+Created a `win` file the same way as in previous challenge. This time, instead of _appending_ the `~` directory to `PATH` variable, I added the `~` directory at a position _before_ the existing directories in the PATH variable. What this will do is that the presence of `win` file will be checked from left to right in the list of directories in `PATH` and since I added `~` at such a position, `win` will be searched for in the `~` directory FIRST. Thus, the _duplicate `rm`_ will be invoked instead of _actual `rm`_ and file will be read successfully.
+
