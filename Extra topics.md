@@ -333,6 +333,47 @@ Named pipes do not support random access. You can only read and write in a seque
 
 Named pipes have a limited amount of buffer space. If the buffer fills up, the writing process may block until there is space available.
 
+
+## Blocking Behavior in Pipes and FIFOs
+
+### Example of Blocking Behavior
+
+#### Example 1: Reader Blocks Until Data is Written
+When a process tries to read from a pipe, and no data is available, it blocks (waits) until another process writes data into the pipe. The reader is suspended until the writer writes data.
+
+**Scenario:**
+1. Process A (reader) tries to read from a pipe.
+2. No data is currently available in the pipe.
+3. Process A is blocked, waiting for data.
+4. Process B (writer) writes data to the pipe.
+5. Process A can now continue and read the data.
+
+#### Example 2: Writer Blocks Until Space is Available
+When a process tries to write data to a pipe, and the pipe is full (it has a limited buffer size), the writing process blocks until there is space available.
+
+**Scenario:**
+1. Process A (writer) tries to write data to a pipe.
+2. The pipe's buffer is full, as no one has read the data yet.
+3. Process A is blocked, waiting for space in the pipe.
+4. Process B (reader) reads data from the pipe.
+5. Process A can now continue and write more data.
+
+### FIFO (First In, First Out)
+
+A FIFO is a special type of named pipe in Unix-like systems. It behaves as a First In, First Out structure, meaning that the data is read in the same order it was written. Unlike unnamed pipes, which are temporary and exist only as long as the process is running, FIFOs can exist as persistent files in the filesystem, allowing for communication between processes that do not share a common parent process.
+
+#### Example of FIFO:
+
+1. A process creates a FIFO named "data_pipe" using `mkfifo`.
+2. Process A writes "Hello" into "data_pipe."
+3. Process B reads "Hello" from "data_pipe."
+4. Process A writes "World" into "data_pipe."
+5. Process B reads "World" from "data_pipe."
+
+In this scenario, the data written by Process A is read by Process B in the exact order it was written, demonstrating the First In, First Out behavior of FIFOs.
+
+_**All named pipes are FIFOs because they allow data to be read in the order it was written (first in, first out) and have a name in the file system for access. However, not all FIFOs are named pipes because unnamed (or anonymous) pipes exist only for communication between related processes and do not have a name in the file system. Thus, while every named pipe is a FIFO, some FIFOs lack a name and are temporary.**_
+
 ## Process Substitution:
 Process substitution is a feature in Unix-like operating systems that allows the output of a command to be treated as if it were a file. This enables processes to communicate with each other without the need for intermediate files on disk. It's particularly useful for passing data between commands in a pipeline or for providing input to commands that expect file names.
 
