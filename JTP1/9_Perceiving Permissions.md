@@ -2,7 +2,7 @@
 - [File types](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#file-types)
 
 - [Understanding file permissions](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#understanding-file-permissions)
-# Channging File Ownership
+# Changing File Ownership
 ### Commands:
 ```
 1) hacker@permissions~changing-file-ownership:~$ cat /flag
@@ -300,5 +300,5 @@ Already explained everything in detail [here](https://github.com/Gulabi-Dil/cryp
 
 After setting the setuid to the program /challenge/getroot followed by running it, a root shell was initiated which gave me
 
-### Some references:
+#### Some references:
 [chown command](https://www.geeksforgeeks.org/chown-command-in-linux-with-examples/)
