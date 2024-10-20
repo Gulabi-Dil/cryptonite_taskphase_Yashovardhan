@@ -7,6 +7,7 @@
 - [Piping and Process Substitutions](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#piping-and-process-substitutions)
    - [Unnamed Pipes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#unnamed-pipes)
    - [Named Pipes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#named-pipes)
+   - [FIFOs and Blocking Behavior in Pipes](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#fifos-and-blocking-behavior-in-pipes)
    - [Process Substitution](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#process-substitution)
    - [Differences among them](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#differences-amongn-unnamed-pipes-named-pipes-and-process-substitutions)
 - [Processes and Jobs](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#processes-and-jobs)
