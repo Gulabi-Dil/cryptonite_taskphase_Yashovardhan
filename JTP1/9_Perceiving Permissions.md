@@ -1,4 +1,26 @@
 ## Some basic info about permissions:
+-[File types](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#file-types)
+-[Understanding file permissions](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#understanding-file-permissions)
+# Channging File Ownership
+### Commands:
+```
+1) hacker@permissions~changing-file-ownership:~$ cat /flag
+```
+Output: Permission denied
+```
+2) hacker@permissions~changing-file-ownership:/$ cd / && ls -l
+```
+Output: A big list of files and directories under the root directory was displayed among which was
+
+`-r--------    1 root root   58 Oct 20 12:48 flag`
+```
+3) hacker@permissions~changing-file-ownership:/$ chown hacker /flag
+4) hacker@permissions~changing-file-ownership:/$ cat /flag
+```
+### Flag: 
+>pwn.college{cAfKNJRihfR_XFEqG-TeSlIZ3vA.dFTM2QDL3cDN0czW}
+### Explanation:
+`chown` changes the ownership of a file hence affecting its permissions as well.
 
 # Groups and Files
 ### Commands:
@@ -276,3 +298,6 @@ Here is your shell...
 Already explained everything in detail [here](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#setuid)
 
 After setting the setuid to the program /challenge/getroot followed by running it, a root shell was initiated which gave me
+
+### Some references:
+[chown command](https://www.geeksforgeeks.org/chown-command-in-linux-with-examples/)
