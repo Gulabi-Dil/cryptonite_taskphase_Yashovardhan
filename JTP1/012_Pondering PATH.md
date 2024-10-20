@@ -1,5 +1,6 @@
 ## Some basic info about variables in Linux:
 - [Variables in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#types-of-variables-in-linux)
+  
 _**NOTE: `PATH` IS AN ENVIRONMENT VARIABLE.**_
 # The PATH Variable
 ### Commands:
