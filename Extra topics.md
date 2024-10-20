@@ -548,3 +548,174 @@ Here, 4 denotes setuid, 7 = all perms to owner, 5 and 5= read and execute perms 
 Similarly, 2 and 1 will denote their respective setting.
 
 We can also set setuid, setgid and sticky bit by simply writing u+s, g+s, +t in the options respectively.
+
+
+===========================================================================
+
+# Types of Variables in Linux
+
+In Linux, variables are used to store data or values that can be referenced or manipulated by commands and scripts. There are several types of variables in Linux, each serving different purposes and having distinct behaviors.
+
+## 1. Environment Variables
+
+- **Definition**: These are global variables that are available to all processes and subshells spawned from the shell. They affect the behavior of the shell and other system processes.
+- **Scope**: System-wide (available to all users and processes).
+- **Usage**: Typically used to configure the environment for applications and the shell.
+
+**Examples**:
+
+- `$HOME` – The home directory of the current user.
+- `$PATH` – Directories searched for executable commands.
+- `$USER` – The name of the current user.
+- `$SHELL` – The current shell in use.
+
+**How to Set**:
+```bash
+export VARIABLE_NAME=value
+```
+
+**How to Access**:
+```bash
+echo $VARIABLE_NAME
+```
+
+**Persistence**: To make environment variables persistent across sessions, add the `export` command to files like `~/.bashrc` or `~/.profile`.
+
+---
+
+## 2. Shell (Local) Variables
+
+- **Definition**: These are variables that are only available in the current shell session. They are not passed to other processes or subshells.
+- **Scope**: Local to the current shell.
+- **Usage**: Used for temporary data or within shell scripts.
+
+**Examples**:
+
+- `greeting="Hello"`
+- `count=5`
+
+**How to Set**:
+```bash
+VARIABLE_NAME=value
+```
+
+**How to Access**:
+```bash
+echo $VARIABLE_NAME
+```
+
+**Difference from Environment Variables**: Shell variables are not exported to subshells or child processes unless explicitly done using `export`. For example:
+```bash
+name="Yash"
+export name
+```
+
+---
+
+## 3. Positional Parameters
+
+- **Definition**: These are special variables that store arguments passed to a shell script or command. They are indexed numerically.
+- **Scope**: Local to the script or function in which they are used.
+- **Usage**: Commonly used in scripts to handle input arguments.
+
+**Examples**:
+
+- `$0` – The name of the script or command being executed.
+- `$1`, `$2`, `$3`, etc. – The first, second, third, and so on, arguments passed to the script.
+- `$@` – All the arguments passed to the script.
+- `$#` – The number of arguments passed to the script.
+
+---
+
+## 4. Special Variables
+
+- **Definition**: These are predefined variables that hold specific information and are used by the shell to manage processes and outputs.
+- **Scope**: System-wide or shell-specific.
+- **Usage**: Automatically updated by the system or shell.
+
+**Examples**:
+
+- `$$` – The process ID (PID) of the current shell.
+- `$?` – The exit status of the last command.
+- `$!` – The PID of the last background process.
+- `$*` – All arguments passed to the script as a single string.
+
+---
+
+## 5. Array Variables
+
+- **Definition**: These are variables that can store multiple values in an indexed format, available in shells like `bash`.
+- **Scope**: Local to the current shell or script.
+- **Usage**: Useful for handling lists of data within a script.
+
+**Example**:
+```bash
+my_array=(apple banana cherry)
+echo ${my_array[1]}  # Outputs "banana"
+```
+
+---
+
+## 6. Readonly Variables
+
+- **Definition**: These variables cannot be changed once they are set. They are often used to protect critical values.
+- **Scope**: Local or global.
+- **Usage**: Used for values that should not be modified.
+
+**Example**:
+```bash
+readonly VAR="immutable"
+VAR="newvalue"  # This will cause an error
+```
+
+---
+
+## 7. Global Variables
+
+- **Definition**: These are variables that are defined as `export`ed variables in the shell and are available to all subshells or processes spawned by the shell.
+- **Scope**: The entire shell session, including child processes.
+- **Usage**: Useful when you need the same variable to be accessible across multiple scripts or commands.
+
+**Example**:
+```bash
+export GLOBAL_VAR="I am global"
+```
+
+---
+
+## Key Differences Between Types
+
+- **Environment vs Shell Variables**: Environment variables are inherited by child processes, whereas shell variables are only available within the shell that defines them.
+- **Local vs Global Variables**: Global variables can be accessed by any subshell, while local variables are confined to the shell in which they were created.
+- **Readonly Variables**: These are protected from modification after they are set.
+- **Positional Parameters**: These handle arguments passed to shell scripts (`$1`, `$2`, etc.).
+
+---
+
+## Summary
+
+- **Environment Variables**: Global and inherited by all processes.
+- **Shell Variables**: Local to the current shell.
+- **Positional Parameters**: Handle script arguments (`$1`, `$2`, etc.).
+- **Special Variables**: Predefined system variables (`$$`, `$?`, etc.).
+- **Array Variables**: Store multiple indexed values.
+- **Readonly Variables**: Cannot be modified after assignment.
+
+Each type of variable in Linux has specific use cases, and understanding their scope and behavior is essential for effective shell scripting and system administration.
+
+
+---
+
+## Comparison Table
+
+| **Type of Variable**    | **Scope**                         | **Persistence**                           | **Examples**                           |
+|-------------------------|-----------------------------------|-------------------------------------------|----------------------------------------|
+| **Environment Variables**| System-wide, inherited by processes | Persistent (if added to config files)      | `$HOME`, `$PATH`, `$USER`, `$SHELL`    |
+| **Shell Variables**      | Local to the current shell        | Not persistent unless exported            | `greeting="Hello"`, `count=5`          |
+| **Positional Parameters**| Local to script or command        | Temporary (only during script execution)   | `$0`, `$1`, `$@`, `$#`                 |
+| **Special Variables**    | Shell-wide or system-specific     | Temporary (updated by the system/shell)    | `$$`, `$?`, `$!`, `$*`                 |
+| **Array Variables**      | Local to the current shell/script | Persistent during script/shell execution   | `my_array=(apple banana cherry)`       |
+| **Readonly Variables**   | Local or global                  | Cannot be changed after assignment         | `readonly VAR="immutable"`             |
+| **Global Variables**     | Available across subshells        | Persistent within the shell session        | `export GLOBAL_VAR="I am global"`      |
+
+
