@@ -16,6 +16,7 @@
 - [Understanding File Permissions](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#understanding-file-permissions)
    - [setuid and setgid](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#setuid)
    - [sticky bit](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#sticky-bit)
+- [Types of Variables in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#types-of-variables-in-linux)
   
 **Some External Links**
 - [Exit Status Variable in Linux](https://www.geeksforgeeks.org/exit-status-variable-in-linux/)
