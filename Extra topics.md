@@ -19,6 +19,7 @@
    - [setuid and setgid](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#setuid)
    - [sticky bit](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#sticky-bit)
 - [Types of Variables in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#types-of-variables-in-linux)
+- [Padding in base64 encoding](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#explanation-of-padding-in-base64-encoding)
   
 **Some External Links**
 - [Exit Status Variable in Linux](https://www.geeksforgeeks.org/exit-status-variable-in-linux/)
