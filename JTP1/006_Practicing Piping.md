@@ -158,7 +158,7 @@ First redirected the word COLLEGE to store it in a file named PWN using echo and
 1) hacker@piping~grepping-stored-results:~$ /challenge/run > /tmp/data.txt
 2) hacker@piping~grepping-stored-results:~$ grep flag /tmp/data.txt
 ```
-grep will output a big list of texts from the file which have the word flag in them but none of them was the flag. `We also can't use cat unlike previous challenges here because what we are reading is a TEXT DOCUMENT and not a file or directory.`
+grep will output a big list of texts from the file which have the word flag in them but none of them was the flag. 
 
 Recollecting the format of the flag i.e. pwn or the curly brackets {},
 ```
