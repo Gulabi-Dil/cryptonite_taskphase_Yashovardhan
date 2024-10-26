@@ -26,6 +26,29 @@ The `sort` command follows these features as stated below:
 
 - Lines starting with a uppercase letter will appear before lines starting with the same letter in lowercase.
 
+Example:
+
+**_Before Sorting_**
+```
+b line starting with lowercase b
+2. Second line starting with a number
+A line starting with uppercase A
+a line starting with lowercase a
+1. First line starting with a number
+B line starting with uppercase B
+```
+_**After Sorting**_
+```
+1. First line starting with a number
+2. Second line starting with a number
+A line starting with uppercase A
+B line starting with uppercase B
+a line starting with lowercase a
+b line starting with lowercase b
+```
+
+
+
 The `uniq` command in Linux is a command-line utility that reports or filters out the _repeated lines_ in a file. In simple words, `uniq` is the tool that helps to detect the _**ADJACENT duplicate lines**_ and also deletes the _duplicate lines_. `uniq` filters out the _**adjacent**_ matching lines from the input file(that is required as an argument) and writes the filtered data to the output file (if output file is not mentioned then it is shown in stdout.)
 **NOTE: When I say "_adjacent lines_", I mean that `uniq` can only compare lines that are _next to each other_ in the file.**
 
