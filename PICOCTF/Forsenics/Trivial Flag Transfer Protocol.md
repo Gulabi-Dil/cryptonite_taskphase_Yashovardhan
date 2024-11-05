@@ -74,6 +74,9 @@ The command to be used to extract hidden data from the files is: `steghide extra
 
 The statement `I USED THE PROGRAM AND HID IT WITH-DUE DILIGENCE.` suggests that the passphrase would be DUE DILIGENCE. I tried using it but didn't work so I used it without spaces and worked for `picture3.bmp`. Oh btw extension `.bmp` has to be mentioned in the file.
 
+# Flag:
+>picoCTF{h1dd3n_1n_pLa1n_51GHT_18375919}
+
 # References:
 - [Wireshark Display Filters](https://wiki.wireshark.org/DisplayFilters)
 - [Steghide](https://steghide.sourceforge.net/)
