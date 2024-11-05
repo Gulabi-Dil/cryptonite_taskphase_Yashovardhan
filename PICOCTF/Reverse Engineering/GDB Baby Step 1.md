@@ -37,6 +37,7 @@ Command not found.
 
 
 # Explanation:
+[Refer to this too](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#understanding-gdb-and-elf-files)
 
 This guide provides a detailed, simplified explanation of the GDB (GNU Debugger) session commands and outputs.
 
@@ -78,3 +79,8 @@ In short, GDB is helping you look "under the hood" of your program by showing th
 
 # Flag:
 >picoCTF{549698}
+
+# References:
+- [GDB](https://www.geeksforgeeks.org/gdb-step-by-step-introduction/)
+- [GNU info 1](https://www.reddit.com/r/linux4noobs/comments/k740t9/what_is_gnu_what_does_gnu_stand_for_where_does_it/)
+- [GNU info 2](https://www.reddit.com/r/linuxquestions/comments/1dcvvrx/eli5_what_exactly_gnulinux_and_whats_the/)
