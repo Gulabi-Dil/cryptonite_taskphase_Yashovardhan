@@ -84,3 +84,4 @@ In short, GDB is helping you look "under the hood" of your program by showing th
 - [GDB](https://www.geeksforgeeks.org/gdb-step-by-step-introduction/)
 - [GNU info 1](https://www.reddit.com/r/linux4noobs/comments/k740t9/what_is_gnu_what_does_gnu_stand_for_where_does_it/)
 - [GNU info 2](https://www.reddit.com/r/linuxquestions/comments/1dcvvrx/eli5_what_exactly_gnulinux_and_whats_the/)
+- [ELF File](https://www.baeldung.com/linux/executable-and-linkable-format-file)
