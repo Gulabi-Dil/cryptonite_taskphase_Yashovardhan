@@ -20,6 +20,7 @@
    - [sticky bit](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#sticky-bit)
 - [Types of Variables in Linux](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#types-of-variables-in-linux)
 - [Padding in base64 encoding](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/main/Extra%20topics.md#explanation-of-padding-in-base64-encoding)
+- [Understanding GDB and ELF Files]()
   
 **Some External Links**
 - [Exit Status Variable in Linux](https://www.geeksforgeeks.org/exit-status-variable-in-linux/)
@@ -838,3 +839,70 @@ Let’s take an example of encoding the string `Man` in Base64.
 
 - Padding (`=`) in Base64 is used to ensure that the encoded output always has a length that is a multiple of 4 characters, even when the input length isn’t a multiple of 3 bytes.
 - One `=` or two `==` are added at the end of the encoded output if the input data doesn’t perfectly fill the 4-character groups.
+
+===========================================================================
+
+# Understanding GDB and ELF Files
+**_NOTE: This is in reference to [GDB Baby Step 1](https://github.com/Gulabi-Dil/cryptonite_taskphase_Yashovardhan/blob/b01dc85753652b05cdfb19959c27241f1f32fc1e/PICOCTF/Reverse%20Engineering/GDB%20Baby%20Step%201.md)_**
+## What is GDB?
+GDB stands for **GNU Debugger**, a tool that allows you to examine what’s happening inside a program while it runs or what it was doing just before it crashed. You can see the contents of variables, step through each line of code, and inspect memory, among other things. It's especially useful for debugging low-level code, like C or assembly.
+
+## Running ELF Files
+An **ELF file** (Executable and Linkable Format) is a standard file format for executables, object code, and shared libraries in Linux. When you try to run an ELF file directly (e.g., `./filename`), the system usually executes it. However, if there's an issue, like missing permissions or dependencies, it might not run directly.
+
+Sometimes, you may open an ELF file with GDB instead, especially if you want to **debug** it. By using GDB, you can see the inner workings of the ELF file step-by-step.
+
+## Why Use GDB to Run an ELF File?
+When a program doesn't behave as expected, you can use GDB to run it in a controlled environment. This allows you to:
+1. Pause execution at specific points (breakpoints).
+2. Examine the state of variables, memory, and registers.
+3. Understand why it crashes or produces incorrect output.
+
+If you had trouble running the ELF file directly with `./filename`, using GDB helps identify issues, like missing files or incorrect paths, by giving detailed error messages.
+
+## Symbols in GDB
+Symbols are names in the code, like function and variable names, that GDB uses to reference specific parts of the program. When you **load a program with symbols** in GDB, you get more readable information—like function names instead of just memory addresses.
+
+For example, without symbols, you might see something like `0x00401122`, which is hard to understand. With symbols, GDB can tell you that `0x00401122` is inside a function called `main`, making debugging easier.
+
+### Debugging Basics
+Debugging is the process of identifying and fixing issues in a program. GDB helps you:
+- Step through the program line-by-line to see what it does.
+- Check if variables hold expected values.
+- Inspect memory and register contents.
+
+### GDB Command: `info functions`
+When you run `info functions`, GDB lists all the functions available in the program. This includes:
+- **Non-debugging symbols**: These are essential functions, but they don't have extra debugging info.
+- **Debugging symbols**: If the program was compiled with debugging info (like with `-g` flag), you'll see more detailed function names and variable names.
+
+### Disassembling Code in GDB
+The `disassemble` command shows the low-level assembly instructions of a function, letting you see what’s happening under the hood.
+
+For example, `disassemble main` shows the assembly code of the `main` function.
+
+### GDB Command: `print`
+The `print` command in GDB allows you to examine values in memory or in registers.
+
+For example, `print $eax` displays the contents of the `eax` register, which is a place where the CPU stores data during execution.
+
+## Commonly Used Commands
+- **break [location]**: Set a breakpoint at a specific line or function.
+- **run**: Start the program.
+- **next**: Step to the next line of code, but don't go into functions.
+- **step**: Step to the next line of code and go into functions if possible.
+- **continue**: Resume execution until the next breakpoint or program end.
+
+---
+
+## Example GDB Session
+Here’s a sample GDB session based on the screenshot provided:
+
+1. **Start GDB**: Run `gdb ./filename` to start debugging.
+2. **View Functions**: Use `info functions` to list all functions.
+3. **Disassemble**: Use `disassemble main` to see the assembly instructions of `main`.
+4. **Inspect Values**: Use commands like `print` to check values in memory or registers.
+
+This session helps in understanding what each part of the program does, especially useful for debugging complex issues.
+
+
