@@ -19,5 +19,13 @@ Got the three clues using:
 First I looked up Alan Eliasen and turns out its a steganography tool and from the first clue its understood that the passphrase for the transmission audio file is `hidden_stegosaurus`.
 
 ```
-7) 
+7) yasho@DESKTOP-6ND4URA:~$ steghide extract -sf messagem00n2.wav -p hidden_stegosaurus
 ```
+Output: `wrote extracted data to "steganopayload12154.txt".`
+```
+8) yasho@DESKTOP-6ND4URA:~$ cat steganopayload12154.txt
+```
+#Flag:
+>picoCTF{the_answer_lies_hidden_in_plain_sight}
+
+Easyyy but m00nwalks are always fun
