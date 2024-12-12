@@ -74,7 +74,7 @@ if __name__ == "__main__":
 The encryption may look difficult af but its easy, just a bit lengthy to understand.
 
 It undergoes 2 rounds of encryption. In the first round, the reversed plaintext is being XORed with key_char, which selects characters from the text_key, `trudeau` according to the current iteration of the loop and the length of the text_key.
-This gives us the semi_cipher which further undergoes encryption in the 2nd round. In the 2nd round, each character of the semi_cipher is multiplied with shared_key and 311 and the final ciphertext is stored in an array called cipher.
+This gives us the semi_cipher which further undergoes encryption in the 2nd round. In the 2nd round, each character of the semi_cipher is multiplied with shared_key and 311 and the final ciphertext is stored in an array called cipher. The computation of keys can be done directly with the values of a,b given in the file provided and the function `generator` in the program. Before proceeding to the main task I had also run an if statement to confirm that shared_key=key, which is true.
 
 So I wrote a decryption program:
 ```
