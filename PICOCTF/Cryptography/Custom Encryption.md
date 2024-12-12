@@ -121,7 +121,7 @@ Got the flag!
 >picoCTF{custom_d2cr0pt6d_66778b34}
 
 # Mistakes:
-One silly mistake I did at first was revering the semicipher before the decryption which was giving me the incorrect output since I broke the reversal path during decryption.
+One silly mistake I did at first was reversing the semicipher before the decryption which was giving me the incorrect output since I broke the reversal path during decryption.
 ```
 def dynamic_xor_decrypt(semicipher, text_key):
     plain = ""
