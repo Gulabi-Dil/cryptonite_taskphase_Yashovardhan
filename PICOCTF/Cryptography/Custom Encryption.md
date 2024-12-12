@@ -133,4 +133,6 @@ def dynamic_xor_decrypt(semicipher, text_key):
 
 print(dynamic_xor_decrypt(semicipher,textkey))
 ```
+# References:
+[enumerate function](https://www.geeksforgeeks.org/enumerate-in-python/)
 Pretty good challenge! :)
